@@ -11,8 +11,6 @@ type PropsType = {
 
 const ProductListing: React.FC<PropsType> = ({ title, data }) => {
 
-  console.log(data);
-
   return (
     <section className="max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">{title}</h2>
