@@ -1,8 +1,29 @@
 "use client";
+import { clearCart } from "@/lib/redux/features/cart";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 
 const OrderSuccessPage: React.FC = () => {
+ const cartItems = useAppSelector((state) => state.cart.items);
+ const dispatch = useAppDispatch();
+ const subtotal = cartItems.reduce(
+  (acc, item) => acc + (item.discount_price ?? item.seeling_price) * item.quantity,
+  0
+ );
+
+
+
+ function generateRandomCode() {
+  const prefix = "#TIZ";
+  const randomNumber = Math.floor(Math.random() * 900000) + 100000; // ensures 6 digits
+  return prefix + randomNumber;
+ }
+
+ // Add an array of payment methods
+ const paymentMethods = ["Credit Card", "PayPal", "Bank Transfer", "Apple Pay", "Google Pay"];
+ const randomPaymentMethod = paymentMethods[Math.floor(Math.random() * paymentMethods.length)];
+
  return (
   <div className="max-w-3xl mx-auto px-4 py-16 flex flex-col items-center text-center">
    {/* Success Icon */}
@@ -28,11 +49,11 @@ const OrderSuccessPage: React.FC = () => {
     <div className="divide-y divide-gray-200">
      <div className="flex justify-between py-2">
       <span>Order Number</span>
-      <span className="font-medium">#TIZ123456</span>
+      <span className="font-medium">{generateRandomCode()}</span>
      </div>
      <div className="flex justify-between py-2">
       <span>Payment Method</span>
-      <span className="font-medium">Credit Card</span>
+      <span className="font-medium">{randomPaymentMethod}</span>
      </div>
      <div className="flex justify-between py-2">
       <span>Shipping</span>
@@ -40,7 +61,7 @@ const OrderSuccessPage: React.FC = () => {
      </div>
      <div className="flex justify-between py-2 font-semibold text-lg">
       <span>Total</span>
-      <span>$249.99</span>
+      <span>${subtotal}</span>
      </div>
     </div>
    </div>
@@ -49,6 +70,7 @@ const OrderSuccessPage: React.FC = () => {
    <div className="flex flex-col sm:flex-row gap-4">
     <Link
      href="/"
+     onClick={() => dispatch(clearCart())}
      className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
     >
      Continue Shopping
