@@ -84,7 +84,7 @@ const CartPage: React.FC = () => {
         <div className="flex-1 flex flex-col justify-center items-center">
           <p className="text-gray-600 text-lg mb-4">Your cart is empty.</p>
           <Link
-            href="/"
+            href="/product"
             className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
           >
             Continue Shopping

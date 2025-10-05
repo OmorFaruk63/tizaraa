@@ -1,4 +1,3 @@
-// app/hooks/useProducts.ts
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -11,11 +10,11 @@ interface Response {
   total: number;
 }
 
-export const useProducts = (initialData: Response, initialQuery = "") => {
+export const useProducts = (initialData: Response) => {
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState(initialQuery);
+  const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState(query);
-  const [sort, setSort] = useState(""); // new state for sorting
+  const [sort, setSort] = useState("");
 
   // Debounce search input
   useEffect(() => {
@@ -23,7 +22,7 @@ export const useProducts = (initialData: Response, initialQuery = "") => {
     return () => clearTimeout(handler);
   }, [query]);
 
-  const { data, isLoading, error } = useSWR<Response>(
+  const { data, error } = useSWR<Response>(
     `/api/product?page=${page}&limit=8&q=${debouncedQuery}&sort=${sort}`,
     (url) => axios.get(url).then((res) => res.data),
     {
@@ -45,7 +44,7 @@ export const useProducts = (initialData: Response, initialQuery = "") => {
     setQuery,
     sort,
     setSort,
-    loading: isLoading,
+    loading: !data && !error,
     error,
   };
 };
