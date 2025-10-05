@@ -32,11 +32,13 @@ const ProductListing: React.FC<PropsType> = ({ title, data }) => {
               <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col items-center text-center">
                 {/* Product Image */}
                 <div className="w-40 h-40 mb-4 flex items-center justify-center">
-                  <img
-                    src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
-                    alt={product.product_name}
-                    className="max-h-full object-contain"
-                  />
+                  <Link href={`/product/${product.product_slug}`}>
+                    <img
+                      src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
+                      alt={product.product_name}
+                      className="max-h-full object-contain"
+                    />
+                  </Link>
                 </div>
 
                 {/* Product Title */}
