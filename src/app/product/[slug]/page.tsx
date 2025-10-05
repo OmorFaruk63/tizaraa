@@ -1,9 +1,13 @@
 
 import { Product } from "@/app/page";
 import ProductDetails from "@/components/ProductDetails";
+import ProductListing from "@/components/ProductListing";
 import { fetchDataSSR } from "@/lib/fetcher";
 import React from "react";
 
+export async function generateStaticParams() {
+  return ['transcend-esd380c-500gb-type-c-portable-ssd'].map((slug) => ({ slug }));
+}
 
 export default async function ProductDetailsPage({
   params,
@@ -16,11 +20,12 @@ export default async function ProductDetailsPage({
     relatedProducts: Product[]
   }
 
-
-
   const productData: ProductDetailsType = await fetchDataSSR(`/api/product/${slug}`)
   return (
-    <ProductDetails productData={productData} />
+    <main>
+      <ProductDetails productData={productData} />
+      <ProductListing data={productData.relatedProducts} title="Related Products" />
+    </main>
   );
 };
 
