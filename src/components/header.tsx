@@ -24,6 +24,7 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-6 items-center">
             <Link href="/" className="text-gray-700 hover:text-indigo-600 font-medium">Home</Link>
+            <Link href="/product" className="text-gray-700 hover:text-indigo-600 font-medium">Product</Link>
             <Link href="/login" className="text-gray-700 hover:text-indigo-600 font-medium">Login</Link>
             <Link href={"/cart"} className="flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
               <FaShoppingCart className="mr-2" />
@@ -46,6 +47,7 @@ const Header = () => {
       >
         <nav className="flex flex-col space-y-2 px-4 py-4">
           <Link href="/" className="text-gray-700 hover:text-indigo-600 font-medium">Home</Link>
+          <Link href="/product" className="text-gray-700 hover:text-indigo-600 font-medium">Product</Link>
           <Link href="/login" className="text-gray-700 hover:text-indigo-600 font-medium">Login</Link>
           <Link href={"/cart"} className="flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition mt-2">
             <FaShoppingCart className="mr-2" />

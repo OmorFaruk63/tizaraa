@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const product = products.find((p) => p.product_slug === slug);
 
   if (!product) {
