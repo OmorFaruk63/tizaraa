@@ -1,8 +1,10 @@
 "use client"
 import { Product } from "@/app/page";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import CartButton from "./CartButton";
 
 type PropsType = {
   title: string
@@ -31,15 +33,17 @@ const ProductListing: React.FC<PropsType> = ({ title, data }) => {
             <div className="m-3">
               <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col items-center text-center">
                 {/* Product Image */}
-                <div className="w-40 h-40 mb-4 flex items-center justify-center">
-                  <Link href={`/product/${product.product_slug}`}>
-                    <img
+                <Link href={`/product/${product.product_slug}`}>
+                  <div className="w-40 h-40 mb-4 flex items-center justify-center">
+                    <Image
+                      width={160}
+                      height={160}
                       src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
                       alt={product.product_name}
                       className="max-h-full object-contain"
                     />
-                  </Link>
-                </div>
+                  </div>
+                </Link>
 
                 {/* Product Title */}
                 <Link href={`/product/${product.product_slug}`} className="text-gray-800 font-semibold text-lg mb-2 line-clamp-2 h-15">
@@ -50,9 +54,7 @@ const ProductListing: React.FC<PropsType> = ({ title, data }) => {
                 <p className="text-indigo-600 font-bold mb-4 text-lg">${product.seeling_price}</p>
 
                 {/* Add to Cart Button */}
-                <button className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
-                  Add to Cart
-                </button>
+                <CartButton product={product} />
               </div>
             </div>
 

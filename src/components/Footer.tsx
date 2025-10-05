@@ -39,11 +39,6 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="/products" className="hover:text-indigo-500 transition">
-                  Products
-                </a>
-              </li>
-              <li>
                 <a href="/login" className="hover:text-indigo-500 transition">
                   Login
                 </a>
@@ -51,7 +46,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-
         {/* Bottom Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
           &copy; 2025 MiniShop. All rights reserved.

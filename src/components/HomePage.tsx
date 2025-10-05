@@ -1,6 +1,4 @@
-"use client"
 import React from "react";
-
 import ProductListing from "./ProductListing";
 import HeroSection from "./HeroSection";
 import { Product } from "@/app/page";
@@ -12,7 +10,7 @@ export interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ data }) => {
 
   return (
-    <div className="bg-gray-50">
+    <div className=" bg-gray-50">
       {/* Hero Section */}
       <HeroSection />
       {/* Product Listing */}

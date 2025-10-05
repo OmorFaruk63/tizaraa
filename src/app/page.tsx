@@ -6,7 +6,7 @@ export type Product = {
   product_thumbnail: string;
   product_name: string;
   product_slug: string;
-  seeling_price: number; // fixed typo: "seeling_price" -> "selling_price"
+  seeling_price: number;
   discount_price: number | null;
   rating: number;
 };

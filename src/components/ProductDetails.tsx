@@ -3,6 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { Product } from "@/app/page";
+import Image from "next/image";
 
 
 export interface PageProps {
@@ -27,21 +28,15 @@ const ProductDetails: React.FC<PageProps> = ({ productData }) => {
           className="mb-4 rounded-lg shadow-lg"
         >
           {/* Main Image */}
-          <SwiperSlide>
-            <img
+          {[1, 2, 3].map(a => (<SwiperSlide key={a}>
+            <Image
+              width={600}
+              height={400}
               src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
               alt={product.product_name}
               className="w-full h-[400px] object-contain bg-white rounded-lg"
             />
-          </SwiperSlide>
-          {/* Duplicate main image for demo - in real API, use multiple images */}
-          <SwiperSlide>
-            <img
-              src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
-              alt={product.product_name}
-              className="w-full h-[400px] object-contain bg-white rounded-lg"
-            />
-          </SwiperSlide>
+          </SwiperSlide>))}
         </Swiper>
 
         {/* Thumbnail Gallery */}
@@ -52,25 +47,39 @@ const ProductDetails: React.FC<PageProps> = ({ productData }) => {
           className="mt-4"
         >
           <SwiperSlide>
-            <img
-              src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
-              alt="thumbnail"
-              className="w-full h-20 object-contain bg-white p-2 rounded border cursor-pointer hover:border-indigo-500"
-            />
+            <div className="w-full h-20 bg-white p-2 rounded border cursor-pointer hover:border-indigo-500">
+              <Image
+                src={`https://minio.tizaraa.shop/tizaraa/${product.product_thumbnail}`}
+                alt="thumbnail"
+                width={125}
+                height={62}
+                className="w-full h-full object-contain rounded"
+              />
+            </div>
           </SwiperSlide>
+
           <SwiperSlide>
-            <img
-              src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
-              alt="thumbnail"
-              className="w-full h-20 object-contain bg-white p-2 rounded border cursor-pointer hover:border-indigo-500"
-            />
+            <div className="w-full h-20 bg-white p-2 rounded border cursor-pointer hover:border-indigo-500">
+              <Image
+                src={`https://minio.tizaraa.shop/tizaraa/${product.product_thumbnail}`}
+                alt="thumbnail"
+                width={125}
+                height={62}
+                className="w-full h-full object-contain rounded"
+              />
+            </div>
           </SwiperSlide>
+
           <SwiperSlide>
-            <img
-              src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
-              alt="thumbnail"
-              className="w-full h-20 object-contain bg-white p-2 rounded border cursor-pointer hover:border-indigo-500"
-            />
+            <div className="w-full h-20 bg-white p-2 rounded border cursor-pointer hover:border-indigo-500">
+              <Image
+                src={`https://minio.tizaraa.shop/tizaraa/${product.product_thumbnail}`}
+                alt="thumbnail"
+                width={125}
+                height={62}
+                className="w-full h-full object-contain rounded"
+              />
+            </div>
           </SwiperSlide>
         </Swiper>
       </div>

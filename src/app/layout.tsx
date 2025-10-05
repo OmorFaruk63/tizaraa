@@ -7,6 +7,8 @@ import 'swiper/css/pagination';
 
 import Header from "@/components/header";
 import Footer from "@/components/Footer";
+import StoreProvider from "./StoreProvider";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +35,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 2000,
+            style: {
+              fontSize: "14px",
+            },
+          }}
+        />
+        <StoreProvider>
+
+          <Header />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
