@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { Product } from "@/app/page";
 import Image from "next/image";
+import CartButton from "./CartButton";
 
 
 export interface PageProps {
@@ -93,9 +94,7 @@ const ProductDetails: React.FC<PageProps> = ({ productData }) => {
         <p className="text-2xl font-bold text-indigo-600 mb-6">${product.seeling_price}</p>
 
         {/* Cart Button */}
-        <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition w-fit">
-          Add to Cart
-        </button>
+        <CartButton className="w-fit px-8 py-3 font-semibold" product={product} />
       </div>
     </div>
   );
