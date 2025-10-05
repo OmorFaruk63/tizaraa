@@ -13,7 +13,11 @@ export type Product = {
 
 export default async function Home() {
 
-  const data: Product[] = await fetchDataSSR(`/api/home`)
+  const data: Product[] | null = await fetchDataSSR(`/api/home`)
+
+  if (!data) {
+    return <div>fetch filed data</div>
+  }
   return (
     <div>
       <HomePage data={data} />

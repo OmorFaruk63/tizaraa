@@ -20,7 +20,11 @@ export default async function ProductDetailsPage({
     relatedProducts: Product[]
   }
 
-  const productData: ProductDetailsType = await fetchDataSSR(`/api/product/${slug}`)
+  const productData: ProductDetailsType | null = await fetchDataSSR(`/api/product/${slug}`)
+
+  if (!productData) {
+    return <div>fetch filed data</div>
+  }
   return (
     <main>
       <ProductDetails productData={productData} />

@@ -1,32 +1,16 @@
-type FetcherOptions = {
- revalidate?: number; // in seconds
- tags?: string[];     // optional, for tag-based revalidation
-};
+export const fetchDataSSR = async <T>(url: string): Promise<T | null> => {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "";
+  const fullUrl = `${baseUrl}${url}`;
 
-
-export const fetchDataSSR = async <T>(
- url: string,
- options?: FetcherOptions
-): Promise<T> => {
- const revalidate = options?.revalidate ?? 3600;
- const tags = options?.tags ?? [];
-
- const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
- const fullUrl = url.startsWith("http") ? url : `${baseUrl}${url}`;
-
- try {
-  const res = await fetch(fullUrl, {
-   next: { revalidate, tags },
-   cache: "force-cache",
-  });
-
-  if (!res.ok) {
-   throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+  try {
+    const res = await fetch(fullUrl, { cache: "force-cache" });
+    if (!res.ok) {
+      console.error(`Fetch error: ${res.status} ${res.statusText}`);
+      return null;
+    }
+    return (await res.json()) as T;
+  } catch (err) {
+    console.error(`Fetcher failed: ${(err as Error).message}`);
+    return null; // Return null on network or other errors
   }
-
-  return res.json() as Promise<T>;
- } catch (err) {
-  throw new Error(`Fetcher failed: ${(err as Error).message}`);
- }
-}
+};
