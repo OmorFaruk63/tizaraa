@@ -12,7 +12,7 @@ export interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ data }) => {
 
   return (
-    <div className="pt-16 bg-gray-50">
+    <div className="bg-gray-50">
       {/* Hero Section */}
       <HeroSection />
       {/* Product Listing */}
