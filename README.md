@@ -9,6 +9,7 @@ A modern mini e-commerce web app built with **Next.js, TypeScript, Tailwind CSS,
 - **Product Listing (SSR)** – Products loaded from mock API with 1s delay for real-server experience
 - **Search & Filter** – Real-time search with **debounce** and **client-side caching**
 - **Product Details (SSG)** – Dynamic `/product/[slug]` route with SEO-friendly **meta tags**
+- **Related product fetch** – Dynamic `/product/[slug]` Randomly 10 product Fetched
 - **Cart System (Redux)** – Add/remove items, total calculation, persistent state
 - **Login Page** – Mock authentication with local API
 - **Error & 404 Pages** – Custom error handling and not-found page
