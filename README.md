@@ -31,13 +31,13 @@ A modern mini e-commerce web app built with **Next.js, TypeScript, Tailwind CSS,
 ## ⚙️ Run Locally
 
 ```bash
-git clone https://github.com/your-username/minishop.git
-cd minishop
+git https://github.com/OmorFaruk63/tizaraa.git
+cd tizaraa
 npm install
 npm run dev
 ```
 
-Open 👉 **[http://localhost:3000](http://localhost:3000)**
+Live Link 👉 **[https://mini-rho-two.vercel.app/](https://mini-rho-two.vercel.app/)**
 
 ---
 
