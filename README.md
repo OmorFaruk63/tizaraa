@@ -1,37 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ MiniShop – Next.js E-commerce Project
 
-## Getting Started
+A modern mini e-commerce web app built with **Next.js, TypeScript, Tailwind CSS, and Redux Toolkit** — featuring mock APIs, SEO optimization, and realistic performance simulation.
 
-First, run the development server:
+---
+
+## 🚀 Key Features
+
+- **Product Listing (SSR)** – Products loaded from mock API with 1s delay for real-server experience
+- **Search & Filter** – Real-time search with **debounce** and **client-side caching**
+- **Product Details (SSG)** – Dynamic `/product/[slug]` route with SEO-friendly **meta tags**
+- **Cart System (Redux)** – Add/remove items, total calculation, persistent state
+- **Login Page** – Mock authentication with local API
+- **Error & 404 Pages** – Custom error handling and not-found page
+- **Responsive Design** – Fully optimized for desktop and mobile
+- **Performance Optimized** – Debounce, caching, and efficient rendering
+
+---
+
+## 🧠 Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State Management:** Redux Toolkit
+- **API:** Next.js API Routes with artificial delay
+- **Deployment:** Vercel (recommended)
+
+---
+
+## ⚙️ Run Locally
 
 ```bash
+git clone https://github.com/your-username/minishop.git
+cd minishop
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open 👉 **[http://localhost:3000](http://localhost:3000)**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👨‍💻 Developer
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# tizaraa
+**Omor Faruk**
+Frontend Developer (React, Next.js, TypeScript)
+Passionate about building fast, scalable, and user-friendly web applications.
