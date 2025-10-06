@@ -4,6 +4,7 @@ import ProductDetails from "@/components/ProductDetails";
 import ProductListing from "@/components/ProductListing";
 import { fetchDataSSR } from "@/lib/fetcher";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import React from "react";
 type ProductDetailsType = {
   product: Product;
@@ -70,7 +71,7 @@ export default async function ProductDetailsPage({
   const productData: ProductDetailsType | null = await fetchDataSSR(`/api/product/${slug}`)
 
   if (!productData) {
-    return <div>fetch filed data</div>
+    return notFound()
   }
   return (
     <main>

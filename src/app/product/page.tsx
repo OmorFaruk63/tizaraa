@@ -5,9 +5,6 @@ import { fetchDataSSR } from "@/lib/fetcher";
 import { Product } from "../page";
 import { notFound } from "next/navigation";
 
-
-export const dynamic = "force-static"; // or "auto" depending on caching strategy
-
 interface ResponseType {
  data: Product[],
  page: number,

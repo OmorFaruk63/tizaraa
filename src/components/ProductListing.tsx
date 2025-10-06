@@ -1,10 +1,8 @@
 "use client"
 import { Product } from "@/app/page";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CartButton from "./CartButton";
+import ProductCard from "./ProductCard";
 
 type PropsType = {
   title: string
@@ -17,7 +15,6 @@ const ProductListing: React.FC<PropsType> = ({ title, data }) => {
     <section className="max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">{title}</h2>
       <Swiper
-        // modules={[Navigation, Pagination]}
         spaceBetween={20}
         slidesPerView={1}
         navigation
@@ -31,33 +28,8 @@ const ProductListing: React.FC<PropsType> = ({ title, data }) => {
         {data?.map((product) => (
           <SwiperSlide key={product.id}>
             <div className="m-3">
-              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col items-center text-center">
-                {/* Product Image */}
-                <Link href={`/product/${product.product_slug}`}>
-                  <div className="w-40 h-40 mb-4 flex items-center justify-center">
-                    <Image
-                      width={160}
-                      height={160}
-                      src={'https://minio.tizaraa.shop/tizaraa/' + product.product_thumbnail}
-                      alt={product.product_name}
-                      className="max-h-full object-contain"
-                    />
-                  </div>
-                </Link>
-
-                {/* Product Title */}
-                <Link href={`/product/${product.product_slug}`} className="text-gray-800 font-semibold text-lg mb-2 line-clamp-2 h-15">
-                  {product.product_name}
-                </Link>
-
-                {/* Product Price */}
-                <p className="text-indigo-600 font-bold mb-4 text-lg">${product.seeling_price}</p>
-
-                {/* Add to Cart Button */}
-                <CartButton product={product} />
-              </div>
+              <ProductCard product={product} />
             </div>
-
           </SwiperSlide>
         ))}
       </Swiper>

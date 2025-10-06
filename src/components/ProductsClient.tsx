@@ -60,7 +60,7 @@ const ProductsClient: React.FC<Props> = ({ initialData }) => {
   } = useProducts(initialData);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold mb-6">All Products</h1>
 
       {/* Search + Sort */}
@@ -112,7 +112,7 @@ const ProductsClient: React.FC<Props> = ({ initialData }) => {
           <button
             disabled={page === 1}
             onClick={() => pageSetter(page - 1)}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+            className="px-4 py-2 cursor-pointer bg-gray-200 rounded disabled:opacity-50"
           >
             Prev
           </button>
@@ -122,13 +122,13 @@ const ProductsClient: React.FC<Props> = ({ initialData }) => {
           <button
             disabled={page === totalPages}
             onClick={() => pageSetter(page + 1)}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 cursor-pointer"
           >
             Next
           </button>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

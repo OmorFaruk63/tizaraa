@@ -3,7 +3,10 @@ export const fetchDataSSR = async <T>(url: string): Promise<T | null> => {
   const fullUrl = `${baseUrl}${url}`;
 
   try {
-    const res = await fetch(fullUrl, { cache: "force-cache" });
+    const res = await fetch(fullUrl, {
+      cache: "force-cache",
+      next: { revalidate: 86400 },
+    });
     if (!res.ok) {
       console.error(`Fetch error: ${res.status} ${res.statusText}`);
       return null;

@@ -12,8 +12,6 @@ const OrderSuccessPage: React.FC = () => {
   0
  );
 
-
-
  function generateRandomCode() {
   const prefix = "#TIZ";
   const randomNumber = Math.floor(Math.random() * 900000) + 100000; // ensures 6 digits

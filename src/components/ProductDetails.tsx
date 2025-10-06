@@ -19,7 +19,7 @@ const ProductDetails: React.FC<PageProps> = ({ productData }) => {
   const product = productData.product
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <section className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
       {/* Left: Image Gallery */}
       <div>
         <Swiper
@@ -96,7 +96,7 @@ const ProductDetails: React.FC<PageProps> = ({ productData }) => {
         {/* Cart Button */}
         <CartButton className="w-fit px-8 py-3 font-semibold" product={product} />
       </div>
-    </div>
+    </section>
   );
 };
 

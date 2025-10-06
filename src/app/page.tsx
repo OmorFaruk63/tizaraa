@@ -1,5 +1,6 @@
 import HomePage from "@/components/HomePage";
 import { fetchDataSSR } from "@/lib/fetcher";
+import { notFound } from "next/navigation";
 
 export type Product = {
   id: number;
@@ -16,7 +17,7 @@ export default async function Home() {
   const data: Product[] | null = await fetchDataSSR(`/api/home`)
 
   if (!data) {
-    return <div>fetch filed data</div>
+    return notFound()
   }
   return (
     <div>
